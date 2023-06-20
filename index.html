@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="vieport"
-            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minmum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Exchange</title>
-    </head>
-    <body>
-        <div id="main">
-            <h1>Обменник</h1>
-            <p>Какой-то текст</p>
-            <button id="send">Отправить</button>
-        </div>
-        <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="vieport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minmum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exchange</title>
+</head>
+<body>
+    <div id="main">
+        <h1>Обменник</h1>
+        <p>Какой-то текст</p>
+        <button id="buy">Оформить заявку</button>
+    </div>
+    <form id="form">
+        <input type="text" placeholder="Name" id="user_name">
+        <input type="text" placeholder="TG nick" id="user_tg_nick">
+        <input type="text" placeholder="Phone" id="user_phone">
+        <button id="order">Order</button>
+    </form>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let buy = document.getElementById("buy");
+        let order = document.getElementById("order");
+
+        buy.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("form").style.display = "block";
+            document.getElementById("user_tg_nick").value = tg.initDataUnsafe.user.username;
+        });
+        order.addEventListener("click", () => {
+            tg.close();
+        });
+    </script>
+</body>
 </html>
