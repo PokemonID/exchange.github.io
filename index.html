@@ -32,11 +32,11 @@
             document.getElementById("user_tg_nick").value = tg.initDataUnsafe.user.username;
         });
         order.addEventListener("click", () => {
-            document.getElementById("error").innerText = ''
+            document.getElementById("error").innerText = '';
             let name = document.getElementById("user_name").value;
             let tg_nick = document.getElementById("user_tg_nick").value;
             let phone = document.getElementById("user_phone").value;    
-            if(name.length < 5) {
+            if(name.length < 5 || phone.length < 5) {
                 document.getElementById("error").innerText = 'Ошибка';
                 return;
             }        
