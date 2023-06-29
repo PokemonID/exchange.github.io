@@ -13,9 +13,22 @@
         <p>Заполните, пожалуйста, данные. После с Вами свяжется наш менеджер.</p>
     </div>
     <form id="form">
-        <input type="text" placeholder="Name" id="user_name">
-        <input type="text" placeholder="TG nick" id="user_tg_nick">
-        <input type="text" placeholder="Phone" id="user_phone">
+        <div>
+            <p>Город, в котором планируете провести сделку</p>
+            <input type="text" placeholder="Город" id="order_city">
+        </div>
+        <div>
+            <p>Выберите банк, со счета которого планируете отправить рубли</p>
+            <input type="text" placeholder="Банк" id="order_bank">
+        </div>
+        <div>
+            <p>Сумма в Евро, которую хотите получить</p>
+            <input type="text" placeholder="10000" id="order_sum">
+        </div>
+        <div>
+            <p>Период времени, когда Вам было бы удобно осуществить сделку</p>
+            <input type="text" placeholder="Время сделки" id="order_time">
+        </div>
         <div id="error"></div>
         <button id="order">Оформить заявку</button>
     </form>
@@ -27,18 +40,20 @@
 
         order.addEventListener("click", () => {
             document.getElementById("error").innerText = ''; 
-            let name = document.getElementById("user_name").value;
-            let tg_nick = document.getElementById("user_tg_nick").value;
-            let phone = document.getElementById("user_phone").value;    
-            if(name.length < 5 || phone.length < 5) {
-                document.getElementById("error").innerText = 'Ошибка';
+            let city = document.getElementById("order_city").value;
+            let bank = document.getElementById("order_bank").value;
+            let sum = document.getElementById("order_sum").value; 
+            let time = document.getElementById("order_time").value;   
+            if(city.length < 5 || bank.length < 5 || sum.length < 3 || time.length < 2) {
+                document.getElementById("error").innerText = 'Не все поля заполнены';
                 return;
             }        
             
             let data = {
-                name: name,
-                tg_nick: tg_nick,
-                phone: phone
+                city: city,
+                bank: bank,
+                sum: sum,
+                time: time
             }
             tg.sendData(JSON.stringify(data));
             tg.close();
