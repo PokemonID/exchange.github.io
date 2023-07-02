@@ -15,17 +15,18 @@
     <form id="form">
         <div>
             <p>Город, в котором планируете провести сделку</p>
-            <select type="text" id="order_city" tabindex="1">
-                <option value="Novi">Херцег Нови</option>
-                <option value="Bar">Бар</option>
-                <option value="Budva">Будва</option>
-                <option value="Kotor">Котор</option>
-                <option value="Tivat">Тиват</option>
-            </select>
+            <input type="text" list="order_city" />
+            <datalist id="order_city">
+                <option>Котор</option>
+                <option>Херцег Нови</option>
+                <option>Будва</option>
+                <option>Тиват</option>
+            </datalist>
         </div>
         <div>
             <p>Выберите банк, со счета которого планируете отправить рубли</p>
             <select type="text" id="order_bank" tabindex="2">
+                <option value="">-Выберите банк-</option>
                 <option value="Sber">Сбер</option>
                 <option value="AlphaBank">Альфа Банк</option>
                 <option value="Tinkoff">Тинькофф</option>
