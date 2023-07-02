@@ -15,31 +15,31 @@
     <form id="form">
         <div>
             <p>Город, в котором планируете провести сделку</p>
-            <select name="city">
-                <option value="Херцег Нови"></option>
-                <option value="Бар"></option>
-                <option value="Будва"></option>
-                <option value="Котор"></option>
-                <option value="Тиват"></option>
+            <select type="text" id="order_city" tabindex="1">
+                <option value="Novi">Херцег Нови</option>
+                <option value="Bar">Бар</option>
+                <option value="Budva">Будва</option>
+                <option value="Kotor">Котор</option>
+                <option value="Tivat">Тиват</option>
             </select>
         </div>
         <div>
             <p>Выберите банк, со счета которого планируете отправить рубли</p>
-            <select name="bank">
-                <option value="Сбер"></option>
-                <option value="Альфа Банк"></option>
-                <option value="Тинькоф"></option>
-                <option value="Райффайзен"></option>
-                <option value="Юникредит"></option>
+            <select type="text" id="order_bank" tabindex="2">
+                <option value="Sber">Сбер</option>
+                <option value="AlphaBank">Альфа Банк</option>
+                <option value="Tinkoff">Тинькофф</option>
+                <option value="Raiffeisen">Райффайзен</option>
+                <option value="UniCredit">ЮниКредит</option>
             </select>
         </div>
         <div>
             <p>Сумма в Евро, которую хотите получить</p>
-            <input type="text" placeholder="10000" id="order_sum">
+            <input type="text" tabindex="3" placeholder="10000" id="order_sum">
         </div>
         <div>
             <p>Период времени, когда Вам было бы удобно осуществить сделку</p>
-            <input type="text" placeholder="13:30" id="order_time">
+            <input type="text" tabindex="4" placeholder="13:30" id="order_time">
         </div>
         <div id="error"></div>
         <button id="order">Оформить заявку</button>
